@@ -5,13 +5,26 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <h1>MaTh QuIz</h1>
-        <button onclick="start()" id="start">start</button>
-        <textarea readonly id="text1"></textarea>
-        <textarea readonly id="text2"></textarea>
+        <div id="main">
+            <h1>The Rules</h1>
+            <p>1. Pressing "start" will start the timer <br>
+                2. You will hav 10 seconds to add each of the question <br>
+                3. After entering the answer, you have to press done to submit your answer <br>
+                4. You will have 5 lives. Getting one wrong or missing the timeline will decrease one live <br>
+                5. After Each round your points will be shown <br>
+                6. Points earned on each question depend on the time taken 
+            </p>
+            <button onclick="start()" id="start">start</button>
+        </div>
+        <div id="page2">
+            <h1>MaTh QuIz</h1>
+            
+            <textarea readonly id="text1"></textarea>
+            <textarea readonly id="text2"></textarea>
+            <input type="number" id="ans" placeholder="your answer?"></input>
+            <button onclick="done()" id="solved">DONE</button>
+            <textarea readonly id="score"></textarea>
+        </div>
         <script src="script.js" defer></script>
-        <input type="number" id="ans" placeholder="your answer?"></input>
-        <button onclick="done()" id="solved">DONE</button>
-        <textarea readonly id="score"></textarea>
     </body>
 </html>
