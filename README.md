@@ -16,4 +16,6 @@
 ### press start to start and done to submit your answer.
 ## Live link
 https://nabaafatima.github.io/math-quiz/
+<img width="1438" height="743" alt="image" src="https://github.com/user-attachments/assets/30b8c6bf-e9c2-4814-9162-8c4ec61367da" />
+
 
