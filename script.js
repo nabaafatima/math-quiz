@@ -5,6 +5,8 @@ const s = document.getElementById("start");
 const m = document.getElementById("score");
 const main = document.getElementById("main");
 const p2 = document.getElementById("page2");
+const restart = document.getElementById("restart");
+const scorepage = document.getElementById("con");
 const timerdisplay = document.getElementById("timerDisplay");
 const livesdisplay = document.getElementById("livesDisplay");
 let num1  = 0;
@@ -33,9 +35,8 @@ function done() {
     time = 10;
     x = num1 + num2;
     y = ans.value;
-     
     if (x==y) {
-        if(time => 3) {
+        if(time >= 3) {
             score = score + 2;
         } else {
             score = score + 1;
@@ -52,6 +53,7 @@ function done() {
         }, 100);
         lives = lives - 1;
         livesdisplay.textContent = "Lives: " + lives + "❤️";
+        livescheck();
     }
     num1 = Math.floor(Math.random()*25)+1;
     num2 = Math.floor(Math.random()*25)+1;
@@ -71,4 +73,27 @@ function timer() {
         }
     }, 1000);
 }
-
+function livescheck(){
+    if (lives == 0) {
+        clearInterval(timerInterval);
+        time = 10;
+        scorepage.style.opacity = 1;
+        restart.style.opacity = 1;
+        restart.style.zIndex = 4;
+        scorepage.style.zIndex = 3;
+        restart.style.pointerEvents = "auto"
+        scorepage.style.pointerEvents = "auto";
+        scorepage.textContent = "You scored " + score;
+    }
+}
+restart.addEventListener("click", ()=>{
+    lives = 5;
+    livesdisplay.textContent = "lives: " + lives + "❤️"
+    time = 10;
+    timer();
+    scorepage.style.opacity = 0;
+    scorepage.textContent = "You scored" + score;
+    restart.style.opacity = 0;
+    scorepage.style.zIndex = -1;
+    restart.style.zIndex = -1;
+})
