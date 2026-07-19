@@ -5,6 +5,7 @@ const s = document.getElementById("start");
 const m = document.getElementById("score");
 const main = document.getElementById("main");
 const p2 = document.getElementById("page2");
+const timerdisplay = document.getElementById("timerDisplay");
 const livesdisplay = document.getElementById("livesDisplay");
 let num1  = 0;
 let num2 = 0;
@@ -13,10 +14,9 @@ let y = 0;
 let lives = 5;
 let score = 0;
 let time = 10;
-const timer = setInterval(() => {
-    time++
-}, 1000);
+let timerInterval = null;
 function start() {
+    timer();
     main.style.opacity = "0";
     main.style.pointerEvents = "none"
     p2.style.opacity = "1";
@@ -29,10 +29,14 @@ function start() {
     y = ans.value;
 }
 function done() {
+    timer();
+    time = 10;
     x = num1 + num2;
-    y = ans.value; 
+    y = ans.value;
+     
     if (x==y) {
         p2.style.backgroundColor = "green";
+        time = 10;
         setTimeout(() => {
             p2.style.backgroundColor = "black"
         }, 100);
@@ -50,5 +54,16 @@ function done() {
     t2.textContent = num2;
     ans.value = "";
 }
-
+function timer() {
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        time--
+        timerdisplay.textContent = "Time: " + time + "s";
+        if (time == 0) {
+            livesdisplay.textContent = "lives: " + lives + "❤️";
+            done();
+            time = 10;
+        }
+    }, 1000);
+}
 
