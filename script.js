@@ -35,6 +35,11 @@ function done() {
     y = ans.value;
      
     if (x==y) {
+        if(time => 3) {
+            score = score + 2;
+        } else {
+            score = score + 1;
+        }
         p2.style.backgroundColor = "green";
         time = 10;
         setTimeout(() => {
