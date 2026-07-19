@@ -3,9 +3,6 @@ body{
     background-color:black;
     color:rgb(19, 194, 214);
     font-family:"Mynerve";
-    position: relative;
-    width: 100vh;
-    height: 100vh;
     scroll-behavior :none;
 }
 #h{
@@ -85,6 +82,8 @@ body{
     height: 100%;
     left: 0;
     top:0;
+    pointer-events:none;
+    font-family: "Mynerve";
 }
 #livesDisplay, #timerDisplay{
     position: absolute;
